@@ -50,6 +50,10 @@ No dependencies — Python 3.10+ standard library only.
 python -m ygo_advisor deck data/decks/cannon-lab.ydk
 python -m ygo_advisor deck data/decks/fydraulis-synchro-lab.ydk --second   # going second
 
+# Evaluate a concrete opening hand (names or passcodes) and get the line
+python -m ygo_advisor hand data/decks/cannon-lab.ydk \
+    --cards "Big Welcome, Arias, Dominus Impulse, Stovie Torbie, Maxx C"
+
 # Which flavor of Labrynth should I bring vs the current meta?
 python -m ygo_advisor flavor
 
@@ -109,11 +113,22 @@ games.
 - **Decklists:** plain `.ydk` (a list of passcodes). The compressed
   `decks.ygoresources.com` URL codec is *not* needed — `.ydk` is read directly.
 
+## The hand evaluator
+
+`ygo_advisor hand <deck> --cards "..."` resolves a written hand (fuzzy names
+or passcodes), classifies each card, and grades the hand **Strong / Playable
+/ Weak / Brick** with a numeric score. It identifies the engine starter,
+checks whether you can actually *use* it (e.g. a lone Level-8 boss can't —
+it needs a Welcome), counts your backup interaction, and prints a
+recommended turn-1 (or go-second) line plus the key "if they have X"
+branches. Heuristic and Labrynth-aware; the coaching layer refines it with
+the live matchup and your read.
+
 ## Status & roadmap
-- **Now (MVP):** deck pipeline, probability engine, flavor recommender, rules
-  cache, coaching playbook — all runnable and tested.
-- **Next:** richer per-deck matchup profiles; an opening-hand *evaluator*
-  that classifies a concrete hand and proposes the line; live meta refresh.
+- **Now:** deck pipeline, probability engine, **opening-hand evaluator**,
+  flavor recommender, rules cache, coaching playbook — all runnable and tested.
+- **Next:** richer per-deck matchup profiles; screenshot→hand parsing; live
+  meta refresh; tighter evaluator tuning per flavor.
 - **Later:** wrap the same engine as a standalone Claude-API chatbot / small
   web UI (the tools become function-calls) for use outside this chat.
 

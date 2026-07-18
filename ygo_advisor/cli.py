@@ -3,6 +3,7 @@
 Commands
 --------
   deck <file.ydk> [--second]   Profile a deck + opening-hand probabilities
+  hand <file.ydk> --cards "..."  Evaluate a concrete opening hand + line
   flavor                       Recommend a Labrynth flavor vs the meta snapshot
   rules <ANCHOR>               Print a cached Expanded Rule Book section
   rules-list                   List cached rule sections
@@ -15,6 +16,7 @@ import argparse
 import sys
 
 from . import flavor as _flavor
+from . import hand as _hand
 from . import probability as prob
 from . import rulebook
 from .cards import CardDB
@@ -41,6 +43,37 @@ def _cmd_deck(args) -> int:
     print("\n## Opening-hand probabilities (exact, hypergeometric)")
     for label, val in p.openers.items():
         print(f"  {prob.pct(val):>7}  {label}")
+    return 0
+
+
+def _cmd_hand(args) -> int:
+    db = CardDB()
+    dl = load_ydk(args.file)
+    tokens = [t.strip() for t in args.cards.split(",") if t.strip()]
+    ev = _hand.evaluate(tokens, dl, db, going_first=not args.second)
+    seat = "second (draw)" if args.second else "first (play)"
+    print(f"# Hand evaluation — {dl.name}, going {seat}\n")
+    print("## Hand")
+    for c in ev.cards:
+        roles = ",".join(r for r in c.roles if r not in {"monster", "spell", "trap", "extra"})
+        print(f"  {c.name:<42} {roles}")
+    print(f"\n## Grade: {ev.grade}  (score {ev.score}/100)")
+    if ev.starters:
+        print(f"  starters:    {', '.join(ev.starters)}")
+    if ev.interaction:
+        print(f"  interaction: {', '.join(ev.interaction)}")
+    if ev.handtraps:
+        print(f"  hand traps:  {', '.join(ev.handtraps)}")
+    print("\n## Why")
+    for r in ev.reasons:
+        print(f"  - {r}")
+    print("\n## Recommended line")
+    for step in ev.line:
+        print(f"  > {step}")
+    if ev.risks:
+        print("\n## Watch for")
+        for r in ev.risks:
+            print(f"  ! {r}")
     return 0
 
 
@@ -106,6 +139,9 @@ def main(argv: list[str] | None = None) -> int:
 
     d = sub.add_parser("deck"); d.add_argument("file"); d.add_argument("--second", action="store_true")
     d.set_defaults(func=_cmd_deck)
+    h = sub.add_parser("hand"); h.add_argument("file")
+    h.add_argument("--cards", required=True, help="comma-separated card names or passcodes")
+    h.add_argument("--second", action="store_true"); h.set_defaults(func=_cmd_hand)
     f = sub.add_parser("flavor"); f.set_defaults(func=_cmd_flavor)
     r = sub.add_parser("rules"); r.add_argument("anchor"); r.set_defaults(func=_cmd_rules)
     rl = sub.add_parser("rules-list"); rl.set_defaults(func=_cmd_rules_list)
