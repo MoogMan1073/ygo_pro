@@ -1,0 +1,29 @@
+# Master Duel Expanded Rule Book — cached sections
+
+Source: https://www.masterduelmeta.com/articles/guides/expanded-rule-book
+
+Access any section with `[baseLink]#[ANCHOR]`.
+
+| Anchor | File |
+| --- | --- |
+| `GETTING-STARTED` | [GETTING-STARTED.md](GETTING-STARTED.md) |
+| `THE-FIELD` | [THE-FIELD.md](THE-FIELD.md) |
+| `GAME-CARDS` | [GAME-CARDS.md](GAME-CARDS.md) |
+| `MONSTERS` | [MONSTERS.md](MONSTERS.md) |
+| `SPELLS-TRAPS` | [SPELLS-TRAPS.md](SPELLS-TRAPS.md) |
+| `PLAYING-THE-GAME` | [PLAYING-THE-GAME.md](PLAYING-THE-GAME.md) |
+| `CHAINS` | [CHAINS.md](CHAINS.md) |
+| `SEGOC` | [SEGOC.md](SEGOC.md) |
+| `READING-RESOLVING-EFFECTS` | [READING-RESOLVING-EFFECTS.md](READING-RESOLVING-EFFECTS.md) |
+| `BATTLE-PHASE` | [BATTLE-PHASE.md](BATTLE-PHASE.md) |
+| `DAMAGE-STEP` | [DAMAGE-STEP.md](DAMAGE-STEP.md) |
+| `ATK-DEF-MODIFICATION` | [ATK-DEF-MODIFICATION.md](ATK-DEF-MODIFICATION.md) |
+| `FORGETTING` | [FORGETTING.md](FORGETTING.md) |
+| `NEGATIONS` | [NEGATIONS.md](NEGATIONS.md) |
+| `IF-WHEN` | [IF-WHEN.md](IF-WHEN.md) |
+| `NOMI` | [NOMI.md](NOMI.md) |
+| `ADDITIONAL-NORMAL` | [ADDITIONAL-NORMAL.md](ADDITIONAL-NORMAL.md) |
+| `HIGHLANDER-CLAUSE` | [HIGHLANDER-CLAUSE.md](HIGHLANDER-CLAUSE.md) |
+| `PROHIBITION` | [PROHIBITION.md](PROHIBITION.md) |
+| `GAMETERMS` | [GAMETERMS.md](GAMETERMS.md) |
+| `FAQ` | [FAQ.md](FAQ.md) |

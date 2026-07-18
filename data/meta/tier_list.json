@@ -1,0 +1,20 @@
+{
+  "source": "https://www.masterduelmeta.com/tier-list#power-rankings",
+  "date": "2026-07",
+  "format": "Master Duel",
+  "note": "Curated snapshot. Power/share observed from the MasterDuelMeta tier list; 'threats' tags are hand-curated abstractions of what each deck does to you, used by the flavor recommender. Refresh with scripts/build_meta.py.",
+  "decks": [
+    {"name": "Branded",                 "tier": 1, "power": 21.0, "share": 9.94, "threats": ["fusion_spam", "grave_reliant", "spell_heavy", "going_second_power", "extra_deck_reliant"]},
+    {"name": "Kewl Tune",               "tier": 1, "power": 16.0, "share": 10.5, "threats": ["special_summon_spam", "extra_deck_reliant", "going_first_combo", "search_heavy"]},
+    {"name": "Dracotail",               "tier": 1, "power": 15.5, "share": 6.91, "threats": ["special_summon_spam", "extra_deck_reliant", "combo_extension", "search_heavy"]},
+    {"name": "Radiant Typhoon Engine",  "tier": 2, "power": 10.5, "share": 0,    "threats": ["special_summon_spam", "going_first_combo", "extra_deck_reliant"]},
+    {"name": "Radiant Typhoon Zoodiac", "tier": 3, "power": 6.5,  "share": 0,    "threats": ["special_summon_spam", "extra_deck_reliant", "board_building"]},
+    {"name": "Elfnote",                 "tier": 3, "power": 5.0,  "share": 0,    "threats": ["special_summon_spam", "search_heavy", "going_first_combo"]},
+    {"name": "Radiant Typhoon",         "tier": 3, "power": 4.0,  "share": 0,    "threats": ["special_summon_spam", "going_first_combo"]},
+    {"name": "Vanquish Soul K9",        "tier": 3, "power": 3.0,  "share": 0,    "threats": ["monster_effect_heavy", "board_building", "going_first_combo"]},
+    {"name": "Lunalight",               "tier": 4, "power": 2.0,  "share": 0,    "threats": ["fusion_spam", "special_summon_spam", "going_second_power"]},
+    {"name": "Sky Striker",             "tier": 4, "power": 1.5,  "share": 0,    "threats": ["spell_heavy", "monster_effect_heavy"]},
+    {"name": "Masked HEROs",            "tier": 4, "power": 1.5,  "share": 0,    "threats": ["fusion_spam", "going_second_power", "spell_heavy"]},
+    {"name": "Predaplant",              "tier": 4, "power": 1.0,  "share": 0,    "threats": ["fusion_spam", "grave_reliant", "going_first_combo"]}
+  ]
+}

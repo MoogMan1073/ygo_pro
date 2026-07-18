@@ -1,0 +1,6 @@
+# ygo_advisor runs on the Python 3.10+ standard library only — no runtime deps.
+# (urllib for fetching, math.comb for the hypergeometric engine, html.parser
+#  for the rulebook.)
+#
+# Optional, for running the test suite with the nicer runner:
+#   pytest>=7
